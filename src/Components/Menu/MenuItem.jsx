@@ -1,7 +1,8 @@
-export function MenuItem() {
+export function MenuItem({ item }) {
+
     return (
-        <div>
-            Menu Item
-        </div>
+        <p>
+            {item.name}&ensp;{item.price}
+        </p>
     )
 }
