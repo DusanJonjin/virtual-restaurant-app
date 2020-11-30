@@ -1,8 +1,10 @@
+export function Guest({ guestNum, orders }) {
 
-export function Guest() {
     return (
         <div>
-            Guest
+            <h5>Guest {guestNum}</h5>
+            <button>Order</button>
+            <ul><li>guest order</li></ul>
         </div>
     )
 }

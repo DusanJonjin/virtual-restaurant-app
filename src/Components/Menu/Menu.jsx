@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { MenuItemsList } from './MenuItemsList';
-import { menu } from '../../Utilities/data';
+import { menu } from '../../Data/data';
 
 export function Menu() {
 

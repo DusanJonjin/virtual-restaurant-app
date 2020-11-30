@@ -1,9 +1,18 @@
 import { Table } from './Table';
 
-export function Tables() {
+export function Tables({ tables }) {
+
+    const tableList = tables.map(table => 
+        <li key={table.id}>
+            <Table table={table} />
+        </li>
+    );
+
     return (
         <div>
-            <Table />
+            <ul>
+                {tableList}
+            </ul>
         </div>
     )
 }
