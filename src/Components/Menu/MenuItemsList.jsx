@@ -1,13 +1,16 @@
 import React from 'react';
 import { MenuItem } from './MenuItem'; 
 
-export function MenuItemsList({ chosenCategory }) {
+export function MenuItemsList({ chosenCategory, addOrderedItem }) {
 
     const { category, items } = chosenCategory;
 
     const menuItemsList = items?.map((item, i) =>
         <li key={i}>
-            <MenuItem item={item} />
+            <MenuItem 
+                item={item}
+                addOrderedItem={addOrderedItem} 
+            />
         </li>
     );
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { MenuItemsList } from './MenuItemsList';
 import { menu } from '../../Data/data';
 
-export function Menu() {
+export function Menu({ addOrderedItem }) {
 
     const [chosenCategory, setChosenCategory] = useState({});
 
@@ -32,6 +32,7 @@ export function Menu() {
                 </ol>
                 <MenuItemsList 
                     chosenCategory={chosenCategory} 
+                    addOrderedItem={addOrderedItem}
                 />
             </div>
         </aside>

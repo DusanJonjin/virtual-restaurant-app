@@ -1,13 +1,13 @@
 import { Guests } from './Guests';
 
-export function Table({ table }) {
+export function Table(props) {
 
-    const { id, ...guestsProps } = table;
+    const { id } = props.table;
 
     return (
         <div>
             <h4>Table {id}</h4>
-            <Guests {...guestsProps} />
+            <Guests {...props} />
         </div>
     )
 }
