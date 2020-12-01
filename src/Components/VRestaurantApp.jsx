@@ -26,7 +26,7 @@ export function VRestaurantApp() {
         setGuestWhoOrders({tableID, guestID})
     }
 
-    const addOrderedItem = (item) => {
+    const addOrderedItem = item => {
         if (!tableID || !guestID) return;
         setTables(prevTables => {
             const addItemToTable = prevTables.map(prevTable => {
@@ -41,6 +41,21 @@ export function VRestaurantApp() {
         })
     };
 
+    const removeOrderedItem = (tableID, index) => {
+        setTables(prevTables => {
+            const removeItemFromTable = prevTables.map(prevTable => {
+                const { id , orders } = prevTable;
+                if(id === tableID) {
+                    const orderedItemRemoved = orders.filter((order, i) => i !== index);
+                    const newTable = {...prevTable, orders: orderedItemRemoved};
+                    return newTable
+                }
+                else return prevTable;
+            })
+            return removeItemFromTable;
+        })
+    }
+
     return (
         <div className="app-wrapper">
             <header>
@@ -51,6 +66,7 @@ export function VRestaurantApp() {
                 <Tables
                     tables={tables}
                     handleGuestWhoOrders={handleGuestWhoOrders}
+                    removeOrderedItem={removeOrderedItem}
                 />
                 <Bills />
             </main>

@@ -1,18 +1,20 @@
-export function Guest({ tableID, guestID, orders, handleGuestWhoOrders }) {
+export function Guest(props) {
+
+    const { 
+        tableID, 
+        guestID, 
+        orders, 
+        handleGuestWhoOrders, 
+        removeOrderedItem 
+    } = props;
     
-    const guestOrders = orders.reduce((acc, order, i) => 
-        order.guestID === guestID ? 
-            [
-                ...acc, 
-                <li 
-                    key={i}
-                    
-                >
-                    {order.name}
-                </li>
-            ] 
-         :  acc
-    , []);
+    const guestOrders = orders.map((order, i) => 
+        order.guestID === guestID &&
+            <li key={i}>
+                <span onClick={() => removeOrderedItem(tableID, i)}>&#x2717;</span>
+                {order.name}
+            </li>
+    );
 
     return (
         <div>

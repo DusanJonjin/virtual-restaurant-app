@@ -2,7 +2,7 @@ import { Guest } from './Guest';
 
 export function Guests(props) {
 
-    const { table, handleGuestWhoOrders } = props;
+    const { table, handleGuestWhoOrders, removeOrderedItem } = props;
 
     const { id, guests, orders } = table;
 
@@ -13,6 +13,7 @@ export function Guests(props) {
                 guestID={guestNum}
                 orders={orders}
                 handleGuestWhoOrders={handleGuestWhoOrders}
+                removeOrderedItem={removeOrderedItem}
             />
         </li>
     );
