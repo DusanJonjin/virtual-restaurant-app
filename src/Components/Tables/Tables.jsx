@@ -1,6 +1,6 @@
 import { Table } from './Table';
 
-export function Tables({ tables, handleGuestWhoOrders, removeOrderedItem }) {
+export function Tables({ tables, handleGuestWhoOrders, removeOrderedItem, removeTable }) {
 
     const tableList = tables.map(table => 
         <li key={table.id}>
@@ -8,15 +8,21 @@ export function Tables({ tables, handleGuestWhoOrders, removeOrderedItem }) {
                 table={table}
                 handleGuestWhoOrders={handleGuestWhoOrders}
                 removeOrderedItem={removeOrderedItem}
+                removeTable={removeTable}
             />
         </li>
     );
 
     return (
-        <div>
+        <section>
+            <p>New table +</p>
+            <div>
+                <p>Table number:</p>
+                <p>Add table</p>
+            </div>
             <ul>
                 {tableList}
             </ul>
-        </div>
+        </section>
     )
 }

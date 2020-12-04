@@ -11,12 +11,12 @@ export function VRestaurantApp() {
 
     const tableWithGuests = {...table, guests: initialGuestsArr};
 
-    const initialTablesArr = Array.from({length: 4}, (v, i) => (
+    /*const initialTablesArr = Array.from({length: 4}, (v, i) => (
         {...tableWithGuests, id: i + 1}
-    ));
+    ));*/
 
     // eslint-disable-next-line no-unused-vars
-    const [tables, setTables] = useState(initialTablesArr);
+    const [tables, setTables] = useState([]);
 
     const [guestWhoOrders, setGuestWhoOrders] = useState({tableID: 0, guestID: 0});
 
@@ -56,6 +56,16 @@ export function VRestaurantApp() {
         })
     }
 
+    const addNewTable = () => {
+
+    }
+
+    const removeTable = id => {
+        setTables(prevTables => prevTables.filter(prevTable => 
+            prevTable.id !== id
+        ));
+    }
+
     return (
         <div className="app-wrapper">
             <header>
@@ -67,6 +77,7 @@ export function VRestaurantApp() {
                     tables={tables}
                     handleGuestWhoOrders={handleGuestWhoOrders}
                     removeOrderedItem={removeOrderedItem}
+                    removeTable={removeTable}
                 />
                 <Bills />
             </main>
